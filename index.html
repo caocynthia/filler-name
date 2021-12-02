@@ -13,7 +13,8 @@
 
   <div id="image">
     <div class="row">
-      <div class="column">
+      <div class="column"">
+        
       </div>
       <div class="column">
       </div>
@@ -48,8 +49,15 @@
     allWords.forEach(function(word) {
       jQuery("#button-container").append("<button class='button'>" + word + "</button>")
       .click(function(){
-        console.log($(this).text());
-        
+        /* console.log($(this).text()); */
+        if (correctWords.includes(word)) {
+          // block disappears
+          
+        }
+        else {
+          // wrong word, block covers a part of the painting again
+          
+        }
       });
     });
   </script>
