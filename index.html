@@ -2,37 +2,63 @@
 <html>
 <head>
 <link rel="stylesheet" href="css/styles.css?v=1.0">
+<<<<<<< Updated upstream
 <title>Level 1</title>
+=======
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>Give me the art!</title>
+>>>>>>> Stashed changes
 </head>
 
 <body>
-  <div id="main">
+  <div id="level">
+    <h1>Level 1</h1>
+  </div>
+
+  <div id="image">
     <div class="row">
-      <div class="column">
-      </div>
-      <div class="column">
-      </div>
       <div class="column">
       </div>
       <div class="column">
       </div>
     </div>
     <div class="row">
+      <div class="column">
+      </div>
+      <div class="column">
+      </div>
     </div>
   </div>
 
+  <div id="button-container">
+
+  </div>
+
   <script>
-    var words = {
-      "unicorn": 0,
-      "branch": 1,
-      "branch": 2,
-      "branch": 3,
-      "branch": 4,
-      "branch": 5,
+    var correctWords = {
+      "Impressionism": 0,
+      "genre painting": 1,
+      "impasto": 2,
+      "Claude Monet": 3,
+      "canvas": 4,
+      "oil paint": 5,
       "branch": 6,
       "branch": 7,
     };
+<<<<<<< Updated upstream
     
+=======
+    var allWords = [
+      "The Renaissance", "Claude Monet", "genre painting", "fresco", "canvas", "Impressionism", "plein air painting", "abstract", "oil paint", "impasto", "watercolor"
+    ];
+    allWords.forEach(function(word) {
+      jQuery("#button-container").append("<button class='button'>" + word + "</button>")
+      .click(function(){
+        console.log($(this).text());
+        
+      });
+    });
+>>>>>>> Stashed changes
   </script>
 </body>
 </html>
