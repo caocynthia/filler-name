@@ -9,6 +9,13 @@ h1 {
   letter-spacing: 1px;
 }
 
+#left, #right {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  width: 350px;
+}
+
 #image {
   display: inline-block;
   width: 404px;
@@ -64,4 +71,12 @@ h1 {
 .button:hover {
   color: #5a9cd6; /* blue */
   /*#4CAF50; Green */
+}
+
+.button:disabled {
+  color: gray;
+}
+
+.button.good:disabled {
+  color: greenyellow;
 }
