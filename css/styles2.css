@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+h1 {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+#left, #right {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  width: 350px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.word {
+  padding-top: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 25px;  
+}
+
+#image {
+  display: inline-block;
+  width: 404px;
+  height: 500px;
+  vertical-align: middle;
+  background: url('../images/parasol.jpg') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.row {
+  height: 250px;
+}
+
+.column {
+  display: inline-block;
+  width: 202px;
+  height: 250px;
+}
+
+.row:first-child .column:first-child {
+  background-color: gold;
+}
+
+.row:first-child .column:nth-child(2) {
+  background-color: green;
+}
+
+.row:nth-child(2) .column:first-child {
+  background-color: blue;
+}
+
+.row:nth-child(2) .column:nth-child(2) {
+  background-color: purple;
+}
+
+#button-container {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  padding: 30px 0px 0px 0px;
+}
+
+.button {
+  border: none;
+  background-color: white;
+  color: black;
+  margin: 8px 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.button:hover {
+  color: #5a9cd6; /* blue */
+  /*#4CAF50; Green */
+}
+
+.button:disabled {
+  color: gray;
+}
+
+.button.good:disabled {
+  color: greenyellow;
+}
