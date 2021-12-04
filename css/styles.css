@@ -10,12 +10,39 @@ h1 {
 }
 
 #image {
-  width: 100%;
+  display: inline-block;
+  width: 404px;
   height: 500px;
   vertical-align: middle;
   background: url('../images/parasol.jpg') no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+.row {
+  height: 250px;
+}
+
+.column {
+  display: inline-block;
+  width: 202px;
+  height: 250px;
+}
+
+.row:first-child .column:first-child {
+  background-color: gold;
+}
+
+.row:first-child .column:nth-child(2) {
+  background-color: green;
+}
+
+.row:nth-child(2) .column:first-child {
+  background-color: blue;
+}
+
+.row:nth-child(2) .column:nth-child(2) {
+  background-color: purple;
 }
 
 #button-container {

@@ -11,18 +11,9 @@
     <h1>Level 1</h1>
   </div>
 
-  <div id="image">
-    <div class="row">
-      <div class="column"">
-        
-      </div>
-      <div class="column">
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-      </div>
-      <div class="column">
+  <div style="text-align: center">
+    <div id="image">
+      <div class="row"><div class="column""></div><div class="column"></div></div><div class="row"><div class="column"></div><div class="column"></div>
       </div>
     </div>
   </div>
@@ -32,33 +23,42 @@
   </div>
 
   <script>
-    var correctWords = {
-      "Impressionism": 0,
-      "genre painting": 1,
-      "impasto": 2,
-      "Claude Monet": 3,
-      "canvas": 4,
-      "oil paint": 5,
-      "branch": 6,
-      "branch": 7,
-    };
+    var correctWords = [
+      "Impressionism",
+      "genre painting",
+      "impasto",
+      "Claude Monet",
+      "canvas",
+      "oil paint",
+      "plein air painting",
+    ];
+    var boxes = [
+      ".row:first-child .column:first-child",
+      ".row:first-child .column:last-child",
+      ".row:last-child .column:first-child",
+      ".row:last-child .column:last-child",
+    ];
     var allWords = [
       "The Renaissance", "Claude Monet", "genre painting", "fresco", "canvas", 
-      "Impressionism", "plein air painting", "abstract", "oil paint", "impasto", "watercolor"
+      "Impressionism", "plein air painting", "abstract", "oil paint", "impasto",
+      "watercolor",
     ];
     allWords.forEach(function(word) {
-      jQuery("#button-container").append("<button class='button'>" + word + "</button>")
-      .click(function(){
-        /* console.log($(this).text()); */
-        if (correctWords.includes(word)) {
-          // block disappears
-          
-        }
-        else {
-          // wrong word, block covers a part of the painting again
-          
-        }
-      });
+      $("#button-container")
+        .append("<button class='button'>" + word + "</button>")
+        .children("button:last-child")
+        .click(function(){
+          /* console.log($(this).text()); */
+          $(this).prop("disabled",true);
+          if (correctWords.includes(word)) {
+            // block disappears 
+            var i = Math.floor(Math.random()*boxes.length);
+            $(boxes[i]).css("opacity", "0");
+          }
+          else {
+            // wrong word, block covers a part of the painting again
+          }
+        });
     });
   </script>
 </body>
