@@ -27,7 +27,7 @@
   </div>
 
   <script>
-    var textWidth = (window.innerWidth - 404 - 30) / 2;
+    var textWidth = (window.innerWidth - 404 - 70) / 2;
     console.log(textWidth);
     $("#left, #right").css("width", textWidth);
 
@@ -40,7 +40,6 @@
       "oil paint": "<div class='word'>oil paint</div>Oil paint was the most common medium in Impressionism. Some techniques that were used included working wet into wet, to avoid hard and defined brush strokes.",
       "plein air painting": "<div class='word'>plein air painting</div>The act of painting outdoors, Monet painted this piece while he was outside, within a couple of hours. This style of painting enabled him to capture the movement and the light of the moment much better.",
     }
-
     var correctWords = [
       "Impressionism",
       "genre painting",
@@ -62,6 +61,7 @@
       "The Renaissance", "Claude Monet", "genre painting", "fresco", "canvas", 
       "Impressionism", "plein air painting", "watercolor", "oil paint", "impasto",
     ];
+    
     allWords.forEach(function(word) {
       var cls = "button";
       if (correctWords.includes(word)) {

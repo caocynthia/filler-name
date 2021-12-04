@@ -10,10 +10,23 @@ h1 {
 }
 
 #left, #right {
+  padding-left: 10px;
+  padding-right: 10px;
   display: inline-block;
   vertical-align: top;
   text-align: left;
   width: 350px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.word {
+  padding-top: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 25px;  
 }
 
 #image {
