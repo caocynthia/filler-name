@@ -22,7 +22,7 @@ h1 {
 }
 
 .word {
-  padding-top: 10px;
+  padding-top: 15px;
   font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 12px;
@@ -50,19 +50,19 @@ h1 {
 }
 
 .row:first-child .column:first-child {
-  background-color: gold;
+  background-color: #f4f1eb; /* off white */
 }
 
 .row:first-child .column:nth-child(2) {
-  background-color: green;
+  background-color: #a4c8e5; /* light blue */
 }
 
 .row:nth-child(2) .column:first-child {
-  background-color: blue;
+  background-color: #256349; /* dark green grass */
 }
 
 .row:nth-child(2) .column:nth-child(2) {
-  background-color: purple;
+  background-color: #789945; /* green grass */
 }
 
 #button-container {
@@ -83,13 +83,12 @@ h1 {
 
 .button:hover {
   color: #5a9cd6; /* blue */
-  /*#4CAF50; Green */
 }
 
 .button:disabled {
-  color: gray;
+  color: #b8b8b8; /* light gray */
 }
 
 .button.good:disabled {
-  color: greenyellow;
+  color: #63bf5e; /* green */
 }
