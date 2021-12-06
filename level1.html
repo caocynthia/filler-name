@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/styles1.css?v=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>Give me the art!</title>
+</head>
+
+<body>
+  <div id="level">
+    <h1>Level 1</h1>
+  </div>
+
+  <div style="text-align: center">
+    <div id="left">
+    </div>
+    <div id="image">
+      <div class="row"><div class="column""></div><div class="column"></div></div><div class="row"><div class="column"></div><div class="column"></div>
+      </div>
+    </div>
+    <div id="right">
+    </div>
+  </div>
+
+  <div id="button-container">
+    
+  </div>
+
+  <div id="next-level-container" style="text-align: center; display: none;">
+    <button onclick="javascript:location.replace('level2.html')">NEXT LEVEL →</button>
+  </div>
+
+  <script>
+    var textWidth = (window.innerWidth - 404 - 70) / 2;
+    console.log(textWidth);
+    $("#left, #right").css("width", textWidth);
+
+    var explanation = {
+      "Impressionism": "<div class='word'>Impressionism</div>Impressionist art began in France in the 1860s, and Monet was a forerunner in this movement. This style is characterized by small, clear brush strokes, as illustrated in the strokes of the cloud in this painting. Painters of impressionism depicted subjects of daily life, the portrayal of light, and a sense of movement in their works.",
+      "genre painting": "<div class='word'>genre painting</div>Genre paintings depict everyday life, showing people doing common activities. This painting shows an everyday Monet family scene, where they are taking a stroll through the French countryside. ",
+      "impasto": "<div class='word'>impasto</div>A painting technique where layers of paint are heavily laid down on an area of the work and its strokes are evident. The grass in the painting features many layers of green, in other colors, to help create a sense of movement.",
+      "Claude Monet": "<div class='word'>Claude Monet</div>Claude Monet was born in 1840, and was married to Camille Doncieux in 1870, until her untimely death in 1879. Monet finished this painting within hours, and it depicts Madame Monet and their 7 year old son, Jean, on a stroll in Argenteuil. The Monet family lived in Argenteuil, which was then a small rural village northwest of Paris.",
+      "canvas": "<div class='word'>canvas</div>The dimensions of the canvas are 100 cm x 81 cm (39 in x 32 in), and is Monet’s largest painting in the 1870s.",
+      "oil paint": "<div class='word'>oil paint</div>Oil paint was the most common medium in Impressionism. Some techniques that were used included working wet into wet, to avoid hard and defined brush strokes.",
+      "plein air painting": "<div class='word'>plein air painting</div>The act of painting outdoors, Monet painted this piece while he was outside, within a couple of hours. This style of painting enabled him to capture the movement and the light of the moment much better.",
+    }
+
+    var correctWords = [
+      "Impressionism",
+      "genre painting",
+      "impasto",
+      "Claude Monet",
+      "canvas",
+      "oil paint",
+      "plein air painting",
+    ];
+    var boxes = [
+      ".row:first-child .column:first-child",
+      ".row:first-child .column:last-child",
+      ".row:last-child .column:first-child",
+      ".row:last-child .column:last-child",
+    ];
+    // the boxes that have 0 opacity 
+    var openedBoxes = [];
+    var allWords = [
+      "The Renaissance", "Claude Monet", "genre painting", "fresco", "canvas", 
+      "Impressionism", "plein air painting", "watercolor", "oil paint", "impasto",
+    ];
+
+    allWords.forEach(function(word) {
+      var cls = "button";
+      if (correctWords.includes(word)) {
+        cls += " good";
+      }
+      $("#button-container")
+        .append("<button class='" + cls + "'>" + word + "</button>")
+        .children("button:last-child")
+        .click(function(){
+          $(this).prop("disabled",true);
+          if (correctWords.includes(word)) {
+            // block disappears 
+            var i = Math.floor(Math.random()*boxes.length);
+            openedBoxes.push(boxes[i]);
+            $(boxes[i]).css("opacity", "0");
+            boxes.splice(i, 1);
+
+            var parent = "#left";
+            if ($("#left div").length >= 4) {
+              parent = "#right";
+            }
+            $(parent).append(explanation[word]);
+
+            if (openedBoxes.length > 3) {
+              $(".button.good").each(function(i, elem) {
+                if(!$(this).is(":disabled")) {
+                  var parent = "#right";
+                  $(parent).append(explanation[$(elem).text().trim()]);
+                }
+              });
+              $('#button-container button').prop("disabled",true);
+              $("#next-level-container").show();
+            }
+          }
+          else {
+            if (openedBoxes.length == 0) {
+              return
+            }
+            // wrong word, block covers a part of the painting again
+            $(openedBoxes[0]).css("opacity", "1");
+            boxes.push(openedBoxes[0]);
+            openedBoxes.shift();
+          }
+        });
+    });
+  </script>
+</body>
+</html>
