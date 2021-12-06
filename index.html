@@ -26,6 +26,10 @@
     
   </div>
 
+  <div id="next-level-container" style="text-align: center; display: none;">
+    <button onclick="javascript:location.replace('level2.html')">NEXT LEVEL →</button>
+  </div>
+
   <script>
     var textWidth = (window.innerWidth - 404 - 70) / 2;
     console.log(textWidth);
@@ -93,7 +97,8 @@
                   $(parent).append(explanation[$(elem).text().trim()]);
                 }
               });
-              $('button').prop("disabled",true);
+              $('#button-container button').prop("disabled",true);
+              $("#next-level-container").show();
             }
           }
           else {

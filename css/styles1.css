@@ -72,7 +72,7 @@ h1 {
   padding: 30px 0px 0px 0px;
 }
 
-.button {
+#button-container button {
   border: none;
   background-color: white;
   color: black;
@@ -81,14 +81,28 @@ h1 {
   font-weight: 400;
 }
 
-.button:hover {
+#button-container button:hover {
   color: #5a9cd6; /* blue */
 }
 
-.button:disabled {
+#button-container button:disabled {
   color: #b8b8b8; /* light gray */
 }
 
-.button.good:disabled {
+#button-container button.good:disabled {
   color: #63bf5e; /* green */
+}
+
+#next-level-container button {
+  border: none;
+  background-color: white;
+  color: black;
+  margin: 8px 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#next-level-container button:hover {
+  color: #5a9cd6; /* blue */
 }

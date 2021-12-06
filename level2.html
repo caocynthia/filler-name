@@ -21,45 +21,66 @@
     </div>
   </div>
 
+  <div id="try-again-container" style="text-align: center; display: none;">
+    <h2>Oops! You don't have enough words to uncover the picture. Try again!</h2>
+    <button onclick="javascript:location.reload()">RESET</button>
+  </div>
+
   <div id="button-container">
     
   </div>
 
+  <div id="next-level-container" style="text-align: center; display: none">
+    <button onclick="javascript:location.replace('index.html')">← PREVIOUS LEVEL</button>
+    <button>NEXT LEVEL →</button>
+  </div>
+
   <script>
-    var textWidth = (window.innerWidth - 404 - 70) / 2;
+    var textWidth = (window.innerWidth - 642 - 70) / 2;
     console.log(textWidth);
     $("#left, #right").css("width", textWidth);
 
     var explanation = {
-      "Impressionism": "<div class='word'>Impressionism</div>Impressionist art began in France in the 1860s, and Monet was a forerunner in this movement. This style is characterized by small, clear brush strokes, as illustrated in the strokes of the cloud in this painting. Painters of impressionism depicted subjects of daily life, the portrayal of light, and a sense of movement in their works.",
-      "genre painting": "<div class='word'>genre painting</div>Genre paintings depict everyday life, showing people doing common activities. This painting shows an everyday Monet family scene, where they are taking a stroll through the French countryside. ",
-      "impasto": "<div class='word'>impasto</div>A painting technique where layers of paint are heavily laid down on an area of the work and its strokes are evident. The grass in the painting features many layers of green, in other colors, to help create a sense of movement.",
-      "Claude Monet": "<div class='word'>Claude Monet</div>Claude Monet was born in 1840, and was married to Camille Doncieux in 1870, until her untimely death in 1879. Monet finished this painting within hours, and it depicts Madame Monet and their 7 year old son, Jean, on a stroll in Argenteuil. The Monet family lived in Argenteuil, which was then a small rural village northwest of Paris.",
-      "canvas": "<div class='word'>canvas</div>The dimensions of the canvas are 100 cm x 81 cm (39 in x 32 in), and is Monet’s largest painting in the 1870s.",
-      "oil paint": "<div class='word'>oil paint</div>Oil paint was the most common medium in Impressionism. Some techniques that were used included working wet into wet, to avoid hard and defined brush strokes.",
-      "plein air painting": "<div class='word'>plein air painting</div>The act of painting outdoors, Monet painted this piece while he was outside, within a couple of hours. This style of painting enabled him to capture the movement and the light of the moment much better.",
+      "social realism": "<div class='word'>social realism</div>Refers to work by writers, painters, filmmakers, printmakers and photographers to draw criticism to the socio-political climate of the time to critique the unequal power dynamics. Lange used her medium as a way to document events such as the Great Depression and the era of Japanese internment.",
+      "tone": "<div class='word'>tone</div>Levels of brightness in a photograph, Lange used mostly dark tones, which is referred to as low key. This made the subject matter of the photograph feel more heavy and dramatic.",
+      "documentary photography": "<div class='word'>documentary photography</div>Lange is most known as a documentary photographer, a form of photography that is used to chronicle events or environments, both significant and small, relevant to history, often used in reportage.",
+      "portraits": "<div class='word'>portraits</div>Portrait photography does not simply mean a photo of a person. Instead, it should say something about the subject (person, animal, object) that you are photographing or the person that you are creating with the camera. Lange is remembered for her intimate portraits of people during tumultuous times, and her ability to evoke emotions through her style.",
+      "discretion": "<div class='word'>discretion</div>When the photographer does not want the person photographed to know that there is a photographer present. Her photographs wanted to capture the subject in a moment, and she tries to make herself be as discreet as possible, allowing for stronger, more intimate moments.",
+      "Graflex": "<div class='word'>Graflex</div>Lange’s preferred camera, a Graflex single-lens camera. They were heavy and bulky, but they were more accurate in portrait photography. In the right hands, they were also able to produce good quality black and white images.",
+      "light": "<div class='word'>light</div>How the light source (either natural or artificial), is positioned in relation to the subject. Lange’s use of light was able to convey certain evocative emotions through her photos.",
+      "composition": "<div class='word'>composition</div>How different elements of an image are arranged within the frame. Photographers can control their composition in a variety of ways. Lange would usually take multiple photos at a time, adjusting composition each time. The focus of this photography is the young girl in the center, and Lange’s use of composition really allows the audience to observe that.",
+      "depth of field": "<div class='word'>depth of field</div>The difference between the closest and farthest in-focus objects in a photo. A shallow depth of field means that relatively close background objects become blurry, and a deep depth of field means that faraway background objects are still in focus. The students in the background of the photo are still in focus, showing that Lange preferred using deep depth of field in her photos.",
     }
-
+    
     var correctWords = [
-      "Impressionism",
-      "genre painting",
-      "impasto",
-      "Claude Monet",
-      "canvas",
-      "oil paint",
-      "plein air painting",
+      "social realism",
+      "tone",
+      "documentary photography",
+      "portraits",
+      "discretion",
+      "Graflex",
+      "light",
+      "composition",
+      "depth of field",
     ];
     var boxes = [
       ".row:first-child .column:first-child",
+      ".row:first-child .column:nth-child(2)",
       ".row:first-child .column:last-child",
+      ".row:nth-child(2) .column:first-child",
+      ".row:nth-child(2) .column:nth-child(2)",
+      ".row:nth-child(2) .column:last-child",
       ".row:last-child .column:first-child",
+      ".row:last-child .column:nth-child(2)",
       ".row:last-child .column:last-child",
     ];
     // the boxes that have 0 opacity 
     var openedBoxes = [];
     var allWords = [
-      "The Renaissance", "Claude Monet", "genre painting", "fresco", "canvas", 
-      "Impressionism", "plein air painting", "watercolor", "oil paint", "impasto",
+      "journalism", "Classicism", "social realism", "tone", "composition", 
+      "Surrealism", "discretion", "light", "landscape photography", 
+      "documentary photography", "commercial photography", "Graflex", "abstract",
+      "depth of field", "portraits", "staged"
     ];
 
     allWords.forEach(function(word) {
@@ -72,6 +93,14 @@
         .children("button:last-child")
         .click(function(){
           $(this).prop("disabled",true);
+
+          // user loses if there aren't enough correct words left
+          if ($("#button-container button.good:enabled").length < 8 - openedBoxes.length) {
+            $("#try-again-container").show();
+            $('#button-container button').prop("disabled",true).css("color", "#b8b8b8");
+          }
+
+          // uncovers a part of the picture when there is a correct word
           if (correctWords.includes(word)) {
             // block disappears 
             var i = Math.floor(Math.random()*boxes.length);
@@ -80,19 +109,20 @@
             boxes.splice(i, 1);
 
             var parent = "#left";
-            if ($("#left div").length >= 4) {
+            if ($("#left div").length >= 5) {
               parent = "#right";
             }
             $(parent).append(explanation[word]);
 
-            if (openedBoxes.length > 3) {
-              $(".button.good").each(function(i, elem) {
+            if (openedBoxes.length > 8) {
+              $("button.good").each(function(i, elem) {
                 if(!$(this).is(":disabled")) {
                   var parent = "#right";
                   $(parent).append(explanation[$(elem).text().trim()]);
                 }
               });
-              $('button').prop("disabled",true);
+              $('#button-container button').prop("disabled",true);
+              $("#next-level-container").css("display", "");
             }
           }
           else {

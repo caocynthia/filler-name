@@ -31,38 +31,58 @@ h1 {
 
 #image {
   display: inline-block;
-  width: 404px;
-  height: 500px;
+  width: 642px;
+  height: 504px;
   vertical-align: middle;
-  background: url('../images/parasol.jpg') no-repeat;
+  background: url('../images/pledge.jpg') no-repeat;
   background-size: contain;
   background-position: center;
 }
 
 .row {
-  height: 250px;
+  height: 168px;
 }
 
 .column {
   display: inline-block;
-  width: 202px;
-  height: 250px;
+  width: 214px;
+  height: 168px;
 }
 
 .row:first-child .column:first-child {
-  background-color: gold;
+  background-color: #f7f7f7; /* lightest gray */
 }
 
 .row:first-child .column:nth-child(2) {
-  background-color: green;
+  background-color: #bdbdbd; /* very light gray */
+}
+
+.row:first-child .column:nth-child(3) {
+  background-color: #dbdbdb; /* light gray */
 }
 
 .row:nth-child(2) .column:first-child {
-  background-color: blue;
+  background-color: #dbdbdb; /* very light gray */
 }
 
 .row:nth-child(2) .column:nth-child(2) {
-  background-color: purple;
+  background-color: #242424; /* almost black */
+}
+
+.row:nth-child(2) .column:nth-child(3) {
+  background-color: #525252; /* dark gray */
+}
+
+.row:nth-child(3) .column:first-child {
+  background-color: #999999; /* dark ish */
+}
+
+.row:nth-child(3) .column:nth-child(2) {
+  background-color: #525252; /* dark gray */
+}
+
+.row:nth-child(3) .column:nth-child(3) {
+  background-color: #242424; /* almost black */
 }
 
 #button-container {
@@ -83,13 +103,51 @@ h1 {
 
 .button:hover {
   color: #5a9cd6; /* blue */
-  /*#4CAF50; Green */
 }
 
 .button:disabled {
-  color: gray;
+  color: #b8b8b8; /* light gray */
 }
 
 .button.good:disabled {
-  color: greenyellow;
+  color: #63bf5e; /* green */
+}
+
+#try-again-container h2{
+  margin: 20px 0px 15px 0px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0px;
+}
+
+#try-again-container button{
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #c2c2c2;
+  background-color: white;
+  color: #5c5c5c;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 5px;
+}
+
+#try-again-container button:hover {
+  background-color: #f5f5f5;
+}
+
+#next-level-container button {
+  border: none;
+  background-color: white;
+  color: black;
+  margin: 8px 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#next-level-container button:hover {
+  color: #5a9cd6; /* blue */
 }
