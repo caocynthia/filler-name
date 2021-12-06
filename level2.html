@@ -9,7 +9,7 @@
 
 <body>
   <div id="level">
-    <h1>Level 2</h1>
+    <h1 id="level-name">Level 2</h1>
   </div>
 
   <div style="text-align: center">
@@ -124,6 +124,7 @@
               });
               $('#button-container button').prop("disabled",true);
               $("#next-level-container").css("display", "");
+              $("#level-name").append(" - One Nation Indivisible, San Francisco by Dorothea Lange");
             }
           }
           else {
