@@ -2,3 +2,7 @@
 
 This is a demo of Level 1 and Level 2 of our tactical media project. </br>
 A sample of what levels 3, 4, and 5 would look like can be found in the sample-levels folder.
+
+Other features to implement:
+- a lives system to show how many fails the user is allowed
+- associate terms with specific boxes 
