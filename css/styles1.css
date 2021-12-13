@@ -11,6 +11,7 @@ h1 {
 
 #directions {
   padding-left: 100px;
+  line-height: 18px;
 }
 
 #left, #right {
