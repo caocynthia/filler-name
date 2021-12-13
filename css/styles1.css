@@ -9,6 +9,10 @@ h1 {
   letter-spacing: 1px;
 }
 
+h3 {
+  padding-left: 100px;
+}
+
 #left, #right {
   padding-left: 10px;
   padding-right: 10px;
